@@ -46,12 +46,12 @@ public class Powerup : MonoBehaviour
                         Debug.Log("Speed Powerup Activated");
                         break;
                     case 2:
-                        player.ChangeTripShotActive(true);
+                        player.ChangeSheidstatus(true);
                         Debug.Log("Shield Powerup Activated");
                         break;
                     default:
                         player.ChangeTripShotActive(true);
-                        Debug.Log("Shield Powerup Activated");
+                        Debug.Log("Default - Triple Shot Powerup Activated");
                         break;
                 }
                 Destroy(this.gameObject);

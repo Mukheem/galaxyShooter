@@ -15,9 +15,11 @@ public class Player : MonoBehaviour
     private int _lives = 3;
     private SpawnManager _spawnManager;
     [SerializeField]
-    private bool _isTripleShotActive = false;
-    [SerializeField]
     private GameObject _tripleShotPrefab;
+    private bool _isTripleShotActive = false;
+    private bool _isShieldActive = false;
+    [SerializeField]
+    private GameObject Shield_Visualiser;
 
 
     // Start is called before the first frame update
@@ -103,7 +105,16 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
-        _lives--;  //_lives -= 1;  //_lives = _lives - 1;
+        if (_isShieldActive)
+        {
+             // If Shield is present then deduct no Lives but deactivate Shield upon collision.
+            ChangeSheidstatus(false);
+        }
+        else
+        {
+            _lives--;//_lives -= 1;  //_lives = _lives - 1;
+        }
+       
         
         if(_lives == 0)
         {
@@ -145,5 +156,22 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         ChangePlayerSpeed(5f);
         Debug.Log("Speed Powerup De-Activated");
+    }
+
+    public void ChangeSheidstatus(bool ShieldStatus)
+    {
+        _isShieldActive = ShieldStatus;
+        Shield_Visualiser.SetActive(ShieldStatus);
+        if (ShieldStatus == true)
+        {
+            StartCoroutine(PlayerSheidDown());
+        }
+    }
+    IEnumerator PlayerSheidDown()
+    {
+        yield return new WaitForSeconds(5.0f);
+        ChangeSheidstatus(false);
+        Debug.Log("Shield Powerup De-Activated");
+
     }
 }
