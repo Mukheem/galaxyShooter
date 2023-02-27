@@ -40,7 +40,7 @@ public class SpawnManager : MonoBehaviour
         //Spawning Triple shot power up in rseconds to 7 seconds range.
         while(_stopSpawnning == false)
         {
-            int randomPowerUp = Random.Range(0, 2);
+            int randomPowerUp = Random.Range(0, 3); //Random.Range excludes the outer range. This gives values 0,1,2 but not 3.
             GameObject newTripleShotPowerUp = Instantiate(_powerups[randomPowerUp], new Vector3(Random.Range(-8.48f, 8.48f), 7f, 0), Quaternion.identity);
             yield return new WaitForSeconds(Random.Range(3.0f,7.0f));
         }
