@@ -20,6 +20,12 @@ public class Player : MonoBehaviour
     private bool _isShieldActive = false;
     [SerializeField]
     private GameObject Shield_Visualiser;
+    [SerializeField]
+    private int _score = 0;
+    private UI_Manager _UI_Manager;
+ 
+
+
 
 
     // Start is called before the first frame update
@@ -28,10 +34,15 @@ public class Player : MonoBehaviour
         //Take the current postion = new postion(0,0,0)
         transform.position = new Vector3(0, 0, 0);
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
+        _UI_Manager = GameObject.Find("Canvas").GetComponent<UI_Manager>();
 
         if(_spawnManager == null)
         {
             Debug.LogError("Spawn Manger is not Initialised. Still NULL...");
+        }
+        if(_UI_Manager == null)
+        {
+            Debug.LogError("UI Manager is not Initialised. Still NULL...");
         }
         
     }
@@ -173,5 +184,10 @@ public class Player : MonoBehaviour
         ChangeSheidstatus(false);
         Debug.Log("Shield Powerup De-Activated");
 
+    }
+    public void AddScore(int NewScore)
+    {
+        _score += NewScore;
+        _UI_Manager.updateScore(_score);
     }
 }
