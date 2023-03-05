@@ -124,6 +124,7 @@ public class Player : MonoBehaviour
         else
         {
             _lives--;//_lives -= 1;  //_lives = _lives - 1;
+            _UI_Manager.UpdateLives(_lives);
         }
        
         
