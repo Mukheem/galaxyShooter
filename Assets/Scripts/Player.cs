@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
         {
             FireLaser();
         }
+
     }
 
     // Customized method to define player movements and restrictions
