@@ -1,13 +1,13 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{32C3BDE6-E125-3128-82C1-25D0441455A3}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="Assets/Scripts/Laser.cs" Line="8" Column="33" />
       <File FileName="Assets/Scripts/Enemy.cs" />
       <File FileName="Assets/Scripts/SpawnManager.cs" />
       <File FileName="Assets/Scripts/Player.cs" Line="59" Column="1" />
       <File FileName="Assets/Scripts/Powerup.cs" />
-      <File FileName="Assets/Scripts/UI_Manager.cs" Line="32" Column="25" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="7" Column="20" />
+      <File FileName="Assets/Scripts/UI_Manager.cs" Line="29" Column="61" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="17" Column="37" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,7 +15,7 @@
           <Node name="My project" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="GameManager.cs" selected="True" />
+                <Node name="Laser.cs" selected="True" />
               </Node>
             </Node>
           </Node>
