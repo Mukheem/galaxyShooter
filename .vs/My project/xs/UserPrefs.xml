@@ -7,7 +7,8 @@
       <File FileName="Assets/Scripts/Player.cs" Line="59" Column="1" />
       <File FileName="Assets/Scripts/Powerup.cs" />
       <File FileName="Assets/Scripts/UI_Manager.cs" Line="29" Column="61" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="17" Column="37" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="18" Column="10" />
+      <File FileName="Assets/Scripts/Main_Menu/MainMenu.cs" Line="10" Column="35" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,7 +16,8 @@
           <Node name="My project" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Laser.cs" selected="True" />
+                <Node name="Main_Menu" expanded="True" />
+                <Node name="GameManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>

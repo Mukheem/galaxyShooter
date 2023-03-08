@@ -60,9 +60,10 @@
     <Compile Include="Assets/Scripts/UI_Manager.cs" />
     <Compile Include="Assets/Scripts/Powerup.cs" />
     <Compile Include="Assets/Scripts/SpawnManager.cs" />
+    <Compile Include="Assets/Scripts/GameManager.cs" />
     <Compile Include="Assets/Scripts/Laser.cs" />
     <Compile Include="Assets/Scripts/Enemy.cs" />
-    <Compile Include="Assets/Scripts/GameManager.cs" />
+    <Compile Include="Assets/Scripts/Main_Menu/MainMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Materials/Shaders/Galaxy.shader" />
