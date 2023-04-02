@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _powerupSpeed: 3
-  _powerup_variable: 0
+  _powerup_id: 0
+  _audioClipPowerUp: {fileID: 8300000, guid: 5ee343246919d2b4bba63ae629e95494, type: 3}
 --- !u!50 &2934378692016787269
 Rigidbody2D:
   serializedVersion: 4

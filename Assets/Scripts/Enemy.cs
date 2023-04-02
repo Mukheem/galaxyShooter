@@ -9,6 +9,10 @@ public class Enemy : MonoBehaviour
     private Player _player;
     private Animator _enemyExplode_anim;
 
+    [SerializeField]
+    private AudioClip _explosionAudioClip;
+    private AudioSource _audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,16 @@ public class Enemy : MonoBehaviour
             Debug.LogError("Player is not Initialised. Still NULL...");
         }
         _enemyExplode_anim = GetComponent<Animator>();
+
+        _audioSource = GetComponent<AudioSource>();
+        if (_audioSource == null)
+        {
+            Debug.LogError("Audio Source is null for asteroid explosion...");
+        }
+        else
+        {
+            _audioSource.clip = _explosionAudioClip;
+        }
     }
 
     // Update is called once per frame
@@ -48,7 +62,8 @@ public class Enemy : MonoBehaviour
             }
             
             _enemyExplode_anim.SetTrigger("OnEnemyDeath");// Setting trigger to On so that animation plays
-            _enemySpeed = 0; // Freexing enemy as soon as it is hit so that the player doesnot loose life
+            _enemySpeed = 0; // Freezing enemy as soon as it is hit so that the player doesnot loose life
+            _audioSource.Play();
             Destroy(this.gameObject,2.8f);
         }
 
@@ -61,6 +76,8 @@ public class Enemy : MonoBehaviour
             }
             _enemyExplode_anim.SetTrigger("OnEnemyDeath");
             _enemySpeed = 0;
+            _audioSource.Play();
+            Destroy(GetComponent<Collider2D>()); // Destroying collider would prevent production of sound even if the object is not destroyed.
             Destroy(this.gameObject,2.8f);
         }
     }

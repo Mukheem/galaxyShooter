@@ -12,21 +12,16 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject[] _powerups;
 
-    // Start is called before the first frame update
-    void Start()
+
+    public void startSpawnning()
     {
         StartCoroutine(SpawnEnemyRoutine());
         StartCoroutine(SpawnTripleShotPowerupRoutine());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     IEnumerator SpawnEnemyRoutine()
     {
+        yield return new WaitForSeconds(3.0f); // Waiting for 3 sec after asteroid is exploded to start spwanning enemies and powerups
         while (_stopSpawnning == false)
         {
             GameObject newEnemy = Instantiate(_enemyPrefab, new Vector3(Random.Range(-8.48f, 8.48f), 7f, 0), Quaternion.identity);
@@ -37,8 +32,9 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnTripleShotPowerupRoutine()
     {
+        yield return new WaitForSeconds(3.0f); // Waiting for 3 sec after asteroid is exploded to start spwanning enemies and powerups
         //Spawning Triple shot power up in rseconds to 7 seconds range.
-        while(_stopSpawnning == false)
+        while (_stopSpawnning == false)
         {
             int randomPowerUp = Random.Range(0, 3); //Random.Range excludes the outer range. This gives values 0,1,2 but not 3.
             GameObject newTripleShotPowerUp = Instantiate(_powerups[randomPowerUp], new Vector3(Random.Range(-8.48f, 8.48f), 7f, 0), Quaternion.identity);

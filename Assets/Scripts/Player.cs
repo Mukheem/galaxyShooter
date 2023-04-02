@@ -21,12 +21,16 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject Shield_Visualiser;
     [SerializeField]
+    private GameObject Left_Engine, Right_Engine;
+  
+    [SerializeField]
     private int _score = 0;
     private UI_Manager _UI_Manager;
  
 
-
-
+    [SerializeField]
+    private AudioClip _laserAudioClip;
+    private AudioSource _audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +39,9 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(0, 0, 0);
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         _UI_Manager = GameObject.Find("Canvas").GetComponent<UI_Manager>();
+        _audioSource = GetComponent<AudioSource>();
 
-        if(_spawnManager == null)
+        if (_spawnManager == null)
         {
             Debug.LogError("Spawn Manger is not Initialised. Still NULL...");
         }
@@ -44,7 +49,17 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("UI Manager is not Initialised. Still NULL...");
         }
-        
+        if(_audioSource == null)
+        {
+            Debug.LogError("Auido Souce is null.");
+        }
+        else
+        {
+            _audioSource.clip = _laserAudioClip; // Assigning a Audio Clip to the Audio Source component.   
+        }
+        //Ensuring that engine failures are off when the game starts
+        Right_Engine.SetActive(false);
+        Left_Engine.SetActive(false);
     }
 
     // Update is called once per frame
@@ -111,7 +126,7 @@ public class Player : MonoBehaviour
             //Debug.Log("Space key is pressed");    
         }
 
-
+        _audioSource.Play(); // Playing Laser audio 
         _canFire = Time.time + _fireRate; // Update _canFire so that the next fire happens at _fireRate
     }
 
@@ -126,6 +141,14 @@ public class Player : MonoBehaviour
         {
             _lives--;//_lives -= 1;  //_lives = _lives - 1;
             _UI_Manager.UpdateLives(_lives);
+            if(_lives == 2)
+            {
+                Right_Engine.SetActive(true);
+            }
+            else if(_lives == 1)
+            {
+                Left_Engine.SetActive(true);
+            }
         }
        
         
