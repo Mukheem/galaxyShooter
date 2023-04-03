@@ -3,7 +3,9 @@ guid: ac9d867d7cdce475389c050e2686a342
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _explosionAudioClip: {instanceID: 0}
+  - _laserPrefabForEnemy: {fileID: 3042713771935640262, guid: db866dcd63a8647cea662acacb59e879, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

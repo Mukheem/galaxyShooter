@@ -5,13 +5,17 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    private float _enemySpeed = 4f;
+    private float _enemySpeed = 2f;
     private Player _player;
     private Animator _enemyExplode_anim;
 
     [SerializeField]
     private AudioClip _explosionAudioClip;
     private AudioSource _audioSource;
+    [SerializeField]
+    private GameObject _laserPrefabForEnemy;
+    private float _enemyLaserFireRate = 3.0f;
+    private float _canEnemyLaserFire = -1f;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +42,21 @@ public class Enemy : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        CalculateMovement();
+        if(Time.time > _canEnemyLaserFire)
+        {
+            _enemyLaserFireRate = Random.Range(3.0f, 7.0f);
+            _canEnemyLaserFire = Time.time + _enemyLaserFireRate;
+            GameObject enemyLaser = Instantiate(_laserPrefabForEnemy, transform.position, Quaternion.identity);
+            Laser[] lasers= enemyLaser.GetComponentsInChildren<Laser>();
+            for (int i = 0; i < lasers.Length; i++)
+            {
+                lasers[i].assignIsEnemyLaser();
+            }
+        }
+    }
+    void CalculateMovement()
     {
         // Moving enemy down
         transform.Translate(Vector3.down * _enemySpeed * Time.deltaTime);
@@ -67,7 +86,7 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject,2.8f);
         }
 
-        if (other.tag == "Laser")
+        if (other.tag == "Laser" && other.tag != "Enemy_Laser")
         {
             Destroy(other.gameObject);
             if(_player != null)
@@ -78,6 +97,7 @@ public class Enemy : MonoBehaviour
             _enemySpeed = 0;
             _audioSource.Play();
             Destroy(GetComponent<Collider2D>()); // Destroying collider would prevent production of sound even if the object is not destroyed.
+            _canEnemyLaserFire = Time.time+10f; // This is to stop the enemy fire after explosion and before destruction.
             Destroy(this.gameObject,2.8f);
         }
     }

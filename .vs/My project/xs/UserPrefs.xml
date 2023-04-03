@@ -1,15 +1,14 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{32C3BDE6-E125-3128-82C1-25D0441455A3}|">
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Assets/Scripts/Laser.cs" Line="8" Column="33" />
-      <File FileName="Assets/Scripts/SpawnManager.cs" />
-      <File FileName="Assets/Scripts/Player.cs" />
-      <File FileName="Assets/Scripts/Powerup.cs" Line="56" Column="29" />
-      <File FileName="Assets/Scripts/UI_Manager.cs" />
-      <File FileName="Assets/Scripts/GameManager.cs" />
+      <File FileName="Assets/Scripts/Laser.cs" Line="74" Column="24" />
+      <File FileName="Assets/Scripts/SpawnManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Powerup.cs" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Asteroid.cs" />
-      <File FileName="Assets/Scripts/Enemy.cs" Line="74" Column="14" />
-      <File FileName="Assets/Scripts/Explosion.cs" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="94" Column="38" />
+      <File FileName="Assets/Scripts/Explosion.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player.cs" Line="133" Column="23" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -28,7 +27,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6286413b-5b43-4dfa-8f74-de77074db779" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="99e24313-a37b-4794-9a2f-bf8075979df0" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
