@@ -11,22 +11,39 @@ public class SpawnManager : MonoBehaviour
     private bool _stopSpawnning = false;
     [SerializeField]
     private GameObject[] _powerups;
+    private Player _player;
+    private int randomPowerUp;
+    [SerializeField]
+    private GameObject _asteroidPrefab;
+    [SerializeField]
+    private Asteroid _asteroid;
 
 
     public void startSpawnning()
     {
+        _asteroid.setHoldSpawnEnemies(false);
         StartCoroutine(SpawnEnemyRoutine());
         StartCoroutine(SpawnTripleShotPowerupRoutine());
+        _player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     IEnumerator SpawnEnemyRoutine()
     {
         yield return new WaitForSeconds(3.0f); // Waiting for 3 sec after asteroid is exploded to start spwanning enemies and powerups
         while (_stopSpawnning == false)
-        {
+        {   
             GameObject newEnemy = Instantiate(_enemyPrefab, new Vector3(Random.Range(-8.48f, 8.48f), 7f, 0), Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
             yield return new WaitForSeconds(5.0f);
+        }
+    }
+    public IEnumerator SpawnAsteroidRoutine()
+    {
+        while (_stopSpawnning == false)
+        {
+            GameObject newAsteroidEnemy = Instantiate(_asteroidPrefab, new Vector3(Random.Range(-8.48f, 8.48f), 7f, 0), Quaternion.identity);
+            newAsteroidEnemy.transform.parent = _enemyContainer.transform;
+            yield return new WaitForSeconds(Random.Range(7.0f, 13.0f));
         }
     }
 
@@ -36,7 +53,16 @@ public class SpawnManager : MonoBehaviour
         //Spawning Triple shot power up in rseconds to 7 seconds range.
         while (_stopSpawnning == false)
         {
-            int randomPowerUp = Random.Range(0, 3); //Random.Range excludes the outer range. This gives values 0,1,2 but not 3.
+            // This IF condition is to ensure that Powerups are increased as player level increases.
+            if(_player.getLevel() <= 2)
+            {
+                randomPowerUp = Random.Range(0, _player.getLevel()); //Random.Range excludes the outer range. This gives values 0,1,2 but not 3.
+            }
+            else
+            {
+                randomPowerUp = Random.Range(0, 3); //Random.Range excludes the outer range. This gives values 0,1,2 but not 3.
+            }
+            
             GameObject newTripleShotPowerUp = Instantiate(_powerups[randomPowerUp], new Vector3(Random.Range(-8.48f, 8.48f), 7f, 0), Quaternion.identity);
             yield return new WaitForSeconds(Random.Range(3.0f,7.0f));
         }

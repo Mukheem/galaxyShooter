@@ -2,21 +2,22 @@
   <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="Assets/Scripts/Laser.cs" Line="74" Column="24" />
-      <File FileName="Assets/Scripts/SpawnManager.cs" />
-      <File FileName="Assets/Scripts/Powerup.cs" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="21" Column="32" />
-      <File FileName="Assets/Scripts/Asteroid.cs" />
-      <File FileName="Assets/Scripts/Enemy.cs" />
-      <File FileName="Assets/Scripts/Explosion.cs" />
-      <File FileName="Assets/Scripts/Player.cs" />
+      <File FileName="Assets/Scripts/Powerup.cs" Line="42" Column="39" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="26" Column="6" />
+      <File FileName="Assets/Scripts/Asteroid.cs" Line="43" Column="17" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="40" Column="10" />
+      <File FileName="Assets/Scripts/UI_Manager.cs" Line="6" Column="14" />
+      <File FileName="Assets/Scripts/SpawnManager.cs" Line="24" Column="33" />
+      <File FileName="Assets/Scripts/Player.cs" Line="227" Column="66" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="My project" expanded="True">
-            <Node name="Assets" expanded="True" selected="True">
+            <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Main_Menu" expanded="True" />
+                <Node name="Asteroid.cs" selected="True" />
               </Node>
             </Node>
           </Node>

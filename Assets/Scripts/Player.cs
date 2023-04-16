@@ -26,11 +26,17 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _score = 0;
     private UI_Manager _UI_Manager;
- 
+    private int _level = 1;
 
+  
     [SerializeField]
     private AudioClip _laserAudioClip;
     private AudioSource _audioSource;
+
+    private int _level2Score = 50;
+    private int _level3Score = 1500;
+    private int _level4Score = 2500;
+    private int _level5Score = 3500;
 
     // Start is called before the first frame update
     void Start()
@@ -214,5 +220,33 @@ public class Player : MonoBehaviour
     {
         _score += NewScore;
         _UI_Manager.updateScore(_score);
+        if(_score >= _level2Score)
+        {
+            _level = 2;
+            _UI_Manager.updateLevel(_level);
+            StartCoroutine(_spawnManager.SpawnAsteroidRoutine());
+
+        }
+        else if(_score >= _level3Score)
+        {
+            _level = 3;
+            _UI_Manager.updateLevel(_level);
+        }
+        else if (_score >= _level4Score)
+        {
+            _level = 4;
+            _UI_Manager.updateLevel(_level);
+            //StartCoroutine(_spawnManager.SpawnAsteroidRoutine());
+        }
+        else if (_score >= _level5Score)
+        {
+            _level = 5;
+            _UI_Manager.updateLevel(_level);
+        }
+    }
+
+    public int getLevel()
+    {
+        return _level;
     }
 }
