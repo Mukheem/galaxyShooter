@@ -36,10 +36,10 @@ public class Player : MonoBehaviour
     private AudioClip _laserAudioClip;
     private AudioSource _audioSource;
 
-    private int _level2Score = 20;
-    private int _level3Score = 30;
-    private int _level4Score = 40;
-    private int _level5Score = 50;
+    private int _level2Score = 70;
+    private int _level3Score = 300;
+    private int _level4Score = 400;
+    private int _level5Score = 500;
 
     // Start is called before the first frame update
     void Start()
@@ -231,14 +231,24 @@ public class Player : MonoBehaviour
         else if(_score == _level3Score)
         {
             _level = 3;
-            Debug.Log("I AM NOT HERE");
-            _enemy = GameObject.Find("Enemy").GetComponent<Enemy>();
-            if (_enemy == null)
-            {
-                Debug.LogError("Enemy is not Initialised. Still NULL...");
-            }
-            _enemy.SetActivateEnemyFire(true);
             _UI_Manager.updateLevel(_level);
+
+            /*
+             * 
+             * Doing the below is not possible here reason being Enemy is a prefab and each clone object has flag 'ActivateEnemyFire' which is supposed to be set to active
+             * 
+             * We are instantiating the enemy object in spawn manager and this is supposed be set there. Since it is a lenghty process and increases LOC i would choose to avoid this
+             * and go with the condition checking before enenmy fire. i.e., _player.getLevel() >=3
+             * 
+             * Reference: https://forum.unity.com/threads/bool-on-an-instantiated-prefab.470610/
+             */
+            //_enemy = GameObject.Find("Enemy(Clone)").GetComponent<Enemy>();
+            //if (_enemy == null)
+            //{
+            //    Debug.LogError("Enemy is not Initialised. Still NULL...");
+            //}
+            //_enemy.SetActivateEnemyFire(true);
+
         }
         else if (_score == _level4Score)
         {

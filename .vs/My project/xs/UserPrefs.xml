@@ -1,14 +1,14 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{32C3BDE6-E125-3128-82C1-25D0441455A3}|">
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Assets/Scripts/Laser.cs" Line="74" Column="24" />
+      <File FileName="Assets/Scripts/Laser.cs" Line="63" Column="17" />
       <File FileName="Assets/Scripts/Powerup.cs" Line="42" Column="39" />
       <File FileName="Assets/Scripts/GameManager.cs" Line="26" Column="6" />
-      <File FileName="Assets/Scripts/Asteroid.cs" Line="43" Column="17" />
-      <File FileName="Assets/Scripts/Enemy.cs" Line="40" Column="10" />
-      <File FileName="Assets/Scripts/UI_Manager.cs" Line="6" Column="14" />
-      <File FileName="Assets/Scripts/SpawnManager.cs" Line="24" Column="33" />
-      <File FileName="Assets/Scripts/Player.cs" Line="227" Column="66" />
+      <File FileName="Assets/Scripts/Asteroid.cs" Line="41" Column="1" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="55" Column="40" />
+      <File FileName="Assets/Scripts/UI_Manager.cs" Line="56" Column="17" />
+      <File FileName="Assets/Scripts/SpawnManager.cs" Line="82" Column="5" />
+      <File FileName="Assets/Scripts/Player.cs" Line="42" Column="35" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,7 +17,7 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Main_Menu" expanded="True" />
-                <Node name="Asteroid.cs" selected="True" />
+                <Node name="Player.cs" selected="True" />
               </Node>
             </Node>
           </Node>

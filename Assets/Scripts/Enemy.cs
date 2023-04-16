@@ -16,8 +16,6 @@ public class Enemy : MonoBehaviour
     private GameObject _laserPrefabForEnemy;
     private float _enemyLaserFireRate = 3.0f;
     private float _canEnemyLaserFire = -1f;
-    [SerializeField]
-    private bool _activateEnemyFire = false;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +44,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         CalculateMovement();
-        if(Time.time > _canEnemyLaserFire && _activateEnemyFire == true)
+        if(Time.time > _canEnemyLaserFire && _player.getLevel() >=3 )
         {
             _enemyLaserFireRate = Random.Range(3.0f, 9.0f);
             _canEnemyLaserFire = Time.time + _enemyLaserFireRate;
@@ -103,8 +101,5 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject,2.8f);
         }
     }
-    public void SetActivateEnemyFire(bool value)
-    {
-        _activateEnemyFire = value;
-    }
+   
 }
