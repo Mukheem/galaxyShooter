@@ -13,7 +13,10 @@ public class Player : MonoBehaviour
     private float _canFire = -1f;
     [SerializeField]
     private int _lives = 3;
+    [SerializeField]
     private SpawnManager _spawnManager;
+    [SerializeField]
+    private Enemy _enemy;
     [SerializeField]
     private GameObject _tripleShotPrefab;
     private bool _isTripleShotActive = false;
@@ -33,10 +36,10 @@ public class Player : MonoBehaviour
     private AudioClip _laserAudioClip;
     private AudioSource _audioSource;
 
-    private int _level2Score = 50;
-    private int _level3Score = 1500;
-    private int _level4Score = 2500;
-    private int _level5Score = 3500;
+    private int _level2Score = 20;
+    private int _level3Score = 30;
+    private int _level4Score = 40;
+    private int _level5Score = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +49,7 @@ public class Player : MonoBehaviour
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         _UI_Manager = GameObject.Find("Canvas").GetComponent<UI_Manager>();
         _audioSource = GetComponent<AudioSource>();
-
+        
         if (_spawnManager == null)
         {
             Debug.LogError("Spawn Manger is not Initialised. Still NULL...");
@@ -220,23 +223,28 @@ public class Player : MonoBehaviour
     {
         _score += NewScore;
         _UI_Manager.updateScore(_score);
-        if(_score >= _level2Score)
+        if(_score == _level2Score)
         {
             _level = 2;
             _UI_Manager.updateLevel(_level);
-            StartCoroutine(_spawnManager.SpawnAsteroidRoutine());
-
-        }
-        else if(_score >= _level3Score)
+         }
+        else if(_score == _level3Score)
         {
             _level = 3;
+            Debug.Log("I AM NOT HERE");
+            _enemy = GameObject.Find("Enemy").GetComponent<Enemy>();
+            if (_enemy == null)
+            {
+                Debug.LogError("Enemy is not Initialised. Still NULL...");
+            }
+            _enemy.SetActivateEnemyFire(true);
             _UI_Manager.updateLevel(_level);
         }
-        else if (_score >= _level4Score)
+        else if (_score == _level4Score)
         {
             _level = 4;
             _UI_Manager.updateLevel(_level);
-            //StartCoroutine(_spawnManager.SpawnAsteroidRoutine());
+            StartCoroutine(_spawnManager.SpawnAsteroidRoutine());
         }
         else if (_score >= _level5Score)
         {

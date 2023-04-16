@@ -8,7 +8,8 @@ public class SpawnManager : MonoBehaviour
     private GameObject _enemyPrefab;
     [SerializeField]
     private GameObject _enemyContainer;
-    private bool _stopSpawnning = false;
+    [SerializeField]
+    private bool _stopSpawnning = true;
     [SerializeField]
     private GameObject[] _powerups;
     private Player _player;
@@ -21,10 +22,15 @@ public class SpawnManager : MonoBehaviour
 
     public void startSpawnning()
     {
-        _asteroid.setHoldSpawnEnemies(false);
-        StartCoroutine(SpawnEnemyRoutine());
-        StartCoroutine(SpawnTripleShotPowerupRoutine());
-        _player = GameObject.Find("Player").GetComponent<Player>();
+        if(_stopSpawnning == true)
+        {
+            _stopSpawnning = false;
+            Debug.Log("Spawnning started");
+            StartCoroutine(SpawnEnemyRoutine());
+            StartCoroutine(SpawnTripleShotPowerupRoutine());
+            _player = GameObject.Find("Player").GetComponent<Player>();
+        }
+        
     }
 
     IEnumerator SpawnEnemyRoutine()
@@ -43,7 +49,7 @@ public class SpawnManager : MonoBehaviour
         {
             GameObject newAsteroidEnemy = Instantiate(_asteroidPrefab, new Vector3(Random.Range(-8.48f, 8.48f), 7f, 0), Quaternion.identity);
             newAsteroidEnemy.transform.parent = _enemyContainer.transform;
-            yield return new WaitForSeconds(Random.Range(7.0f, 13.0f));
+            yield return new WaitForSeconds(Random.Range(11.0f, 15.0f));
         }
     }
 
@@ -71,5 +77,7 @@ public class SpawnManager : MonoBehaviour
     public void OnPlayerDeath()
     {
         _stopSpawnning = true;
+        Destroy(this.gameObject,3.0f);
     }
+    
 }
