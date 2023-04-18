@@ -227,11 +227,20 @@ public class Player : MonoBehaviour
         {
             _level = 2;
             _UI_Manager.updateLevel(_level);
-         }
+            /*
+             * 
+             * Speeding up Enemy speed. Code changes in SpawnManager.
+             */
+
+        }
         else if(_score == _level3Score)
         {
             _level = 3;
             _UI_Manager.updateLevel(_level);
+            /*
+             * 
+             * Speeding up Enemy Spawnning. Code changes in SpawnManager.
+             */
 
             /*
              * 

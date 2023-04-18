@@ -40,7 +40,19 @@ public class SpawnManager : MonoBehaviour
         {   
             GameObject newEnemy = Instantiate(_enemyPrefab, new Vector3(Random.Range(-8.48f, 8.48f), 7f, 0), Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
-            yield return new WaitForSeconds(5.0f);
+            if(_player.getLevel() >= 2)
+            {
+                newEnemy.GetComponent<Enemy>().setEnemySpeed(3);
+            }
+            if (_player.getLevel() >= 3)
+            {
+                yield return new WaitForSeconds(3.5f);
+            }
+            else
+            {
+                yield return new WaitForSeconds(5.0f);
+            }
+            
         }
     }
     public IEnumerator SpawnAsteroidRoutine()

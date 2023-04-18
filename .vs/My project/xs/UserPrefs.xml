@@ -2,22 +2,21 @@
   <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="Assets/Scripts/Laser.cs" Line="63" Column="17" />
-      <File FileName="Assets/Scripts/Powerup.cs" Line="42" Column="39" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="26" Column="6" />
-      <File FileName="Assets/Scripts/Asteroid.cs" Line="41" Column="1" />
-      <File FileName="Assets/Scripts/Enemy.cs" Line="55" Column="40" />
-      <File FileName="Assets/Scripts/UI_Manager.cs" Line="56" Column="17" />
-      <File FileName="Assets/Scripts/SpawnManager.cs" Line="82" Column="5" />
-      <File FileName="Assets/Scripts/Player.cs" Line="42" Column="35" />
+      <File FileName="Assets/Scripts/Powerup.cs" />
+      <File FileName="Assets/Scripts/GameManager.cs" />
+      <File FileName="Assets/Scripts/Asteroid.cs" />
+      <File FileName="Assets/Scripts/Enemy.cs" />
+      <File FileName="Assets/Scripts/UI_Manager.cs" />
+      <File FileName="Assets/Scripts/SpawnManager.cs" Line="44" Column="14" />
+      <File FileName="Assets/Scripts/Player.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="My project" expanded="True">
-            <Node name="Assets" expanded="True">
+            <Node name="Assets" expanded="True" selected="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Main_Menu" expanded="True" />
-                <Node name="Player.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -27,7 +26,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="24c54845-884e-4c09-bf92-c0344fe4c802" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5a5446bb-eaaa-4f69-a627-49e17e850d5c" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

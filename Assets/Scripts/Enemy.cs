@@ -101,5 +101,10 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject,2.8f);
         }
     }
+
+    public void setEnemySpeed(float newEnemySpeedValue)
+    {
+        _enemySpeed = newEnemySpeedValue;
+    }
    
 }
